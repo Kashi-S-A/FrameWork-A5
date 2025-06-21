@@ -18,12 +18,12 @@ public class Insert {
 		EntityTransaction et = em.getTransaction();
 
 		Car car = new Car();
-		car.setCid(2);
+		car.setCid(1);
 		car.setBrand("BMW");
 		car.setPrice(2000000);
 
 		Engine engine = new Engine();
-		engine.setEid(222);
+		engine.setEid(111);
 		engine.setCc(1500);
 		
 		car.setEngine(engine);

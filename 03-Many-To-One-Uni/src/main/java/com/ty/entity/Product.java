@@ -1,7 +1,10 @@
 package com.ty.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Product {
@@ -11,8 +14,19 @@ public class Product {
 	private String name;
 	private double price;
 
+	@OneToMany(mappedBy = "product")
+	private List<Review> reviews;
+
 	public Product() {
 		// Default constructor
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	public Product(int id, String name, double price) {

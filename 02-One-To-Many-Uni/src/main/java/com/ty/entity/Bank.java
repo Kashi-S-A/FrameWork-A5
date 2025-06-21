@@ -3,6 +3,7 @@ package com.ty.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -13,7 +14,7 @@ public class Bank {
 	private int bid;
 	private String name;
 
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Account> accounts;
 
 	public List<Account> getAccounts() {

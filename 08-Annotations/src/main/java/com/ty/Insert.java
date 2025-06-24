@@ -1,37 +1,26 @@
-package com.ty.crud;
+package com.ty;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import com.ty.entity.Car;
-import com.ty.entity.Engine;
-
 public class Insert {
 
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
-
 		EntityManager em = emf.createEntityManager();
-
 		EntityTransaction et = em.getTransaction();
 
-		Car car = new Car();
-		car.setCid(3);
-		car.setBrand("BMW");
-		car.setPrice(2000000);
-
-		Engine engine = new Engine();
-		engine.setEid(333);
-		engine.setCc(1500);
-		
-		car.setEngine(engine);
+		User user = new User();
+		user.setName("Pengi");
+		user.setEmail("pengi@gmail.com");
+		user.setPhone(56739546543L);
 
 		et.begin();
-		em.persist(car);
+		em.persist(user);
 		et.commit();
 
-		System.out.println("saved");
+		System.out.println("User inserted successfully");
 	}
 }

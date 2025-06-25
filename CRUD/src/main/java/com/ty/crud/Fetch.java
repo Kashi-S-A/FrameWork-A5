@@ -1,8 +1,10 @@
-package com.ty.entity;
+package com.ty.crud;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import com.ty.entity.Employee;
 
 public class Fetch {
 
@@ -10,7 +12,7 @@ public class Fetch {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
 		EntityManager em = emf.createEntityManager();
 
-		Employee employee = em.find(Employee.class, 105);
+		Employee employee = em.find(Employee.class, 101);
 
 		if (employee != null) {
 			System.out.println("ID: " + employee.getId());

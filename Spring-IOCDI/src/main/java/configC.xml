@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+<bean id="mySchool" class="com.ty.di.School">
+	<constructor-arg value="D.Y Patil"></constructor-arg>
+	<constructor-arg value="New Mumbai"></constructor-arg>
+</bean>
+
+</beans>

@@ -6,6 +6,11 @@ public class Car {
 
 	private Engine engine;
 
+	public Car(String brand, Engine engine) {
+		this.brand = brand;
+		this.engine = engine;
+	}
+
 	public String getBrand() {
 		return brand;
 	}

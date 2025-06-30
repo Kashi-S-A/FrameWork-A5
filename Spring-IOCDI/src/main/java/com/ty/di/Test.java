@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext app = new ClassPathXmlApplicationContext("config.xml");
+		ConfigurableApplicationContext app = new ClassPathXmlApplicationContext("configC.xml");
 
 		School school = (School) app.getBean("mySchool");
 

@@ -14,7 +14,7 @@ public class Shop {
 		System.out.println("Shop Owner: " + shopOwner);
 		System.out.println("==============Products:================");
 		for (Map.Entry<String, Double> entry : products.entrySet()) {
-			System.out.println("Product: " + entry.getKey() + ", Price: " + entry.getValue());
+			System.out.println(entry.getKey() + "--> " + entry.getValue());
 		}
 	}
 

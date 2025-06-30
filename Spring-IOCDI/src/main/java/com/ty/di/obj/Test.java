@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext app = new ClassPathXmlApplicationContext("config3.xml");
+		ConfigurableApplicationContext app = new ClassPathXmlApplicationContext("configC2.xml");
 
 		System.out.println("----------------Car------------------");
 		Car car = (Car) app.getBean("myCar");

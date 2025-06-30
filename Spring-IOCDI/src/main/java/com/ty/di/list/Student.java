@@ -8,6 +8,12 @@ public class Student {
 	private int studentId;
 	private List<String> subjects;
 
+	public Student(String studentName, int studentId, List<String> subjects) {
+		this.studentName = studentName;
+		this.studentId = studentId;
+		this.subjects = subjects;
+	}
+
 	public void displayStudentInfo() {
 		System.out.println("Student Name: " + studentName);
 		System.out.println("Student ID: " + studentId);

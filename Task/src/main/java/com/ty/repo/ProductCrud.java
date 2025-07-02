@@ -72,4 +72,24 @@ public class ProductCrud {
 	public String updateProduct(Integer pid, Product product) {
 		// TODO: Implement the logic to update the product's details in the database
 	}
+
+	/**
+	 * Retrieves all products from the database.
+	 * 
+	 * @return A list of all products in the database.
+	 */
+	public List<Product> getAllProducts() {
+		// TODO: Implement the logic to retrieve all products from the database
+	}
+
+	/**
+	 * Retrieves all products by category ID.
+	 * 
+	 * @param cid The ID of the category for which products are to be retrieved.
+	 * @return A list of products belonging to the specified category.
+	 */
+	public List<Product> getAllProductsByCategoryId(Integer cid) {
+		// TODO: Implement the logic to retrieve all products by category ID from the
+		// database
+	}
 }

@@ -8,12 +8,14 @@ import java.util.Map;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 @ComponentScan(basePackages = "com.ty.bean")
 public class AppConfig {
 
 	@Bean
+	@Scope(value = "prototype")
 	public List<String> getSubjects() {
 		return Arrays.asList("HTML", "JAVA", "Spring Boot");
 	}

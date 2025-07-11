@@ -1,4 +1,4 @@
-package com.datajpa;
+package com.datajpa.entity;
 
 import java.time.LocalDateTime;
 

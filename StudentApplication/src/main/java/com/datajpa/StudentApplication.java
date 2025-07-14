@@ -1,17 +1,10 @@
 package com.datajpa;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 import com.datajpa.service.StudentService;
 
@@ -36,6 +29,8 @@ public class StudentApplication {
 			System.out.println("6. to fetch Sorted records");
 			System.out.println("7. to end operations");
 			System.out.println("8. for filtering");
+			System.out.println("9. fetch by phone");
+			System.out.println("10. fetch By name containing");
 
 			int choice = sc.nextInt();
 
@@ -67,6 +62,18 @@ public class StudentApplication {
 			case 8: {
 				service.filterStudents();
 
+			}
+				break;
+			case 9: {
+				System.out.println("enter phone No : ");
+				long phone = sc.nextLong();
+				service.getByPhone(phone);
+			}
+				break;
+			case 10: {
+				System.out.println("enter name: ");
+				String name = sc.next();
+				service.getByNameContaining(name);
 			}
 				break;
 			case 7: {

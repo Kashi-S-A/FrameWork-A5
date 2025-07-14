@@ -154,4 +154,14 @@ public class StudentService {
 			System.out.println("------------------");
 		}
 	}
+
+	public void getByPhone(Long phone) {
+		List<Student> students = repo.getStudentByPhone(phone);
+		printStudents(students);
+	}
+
+	public void getByNameContaining(String name) {
+		List<Student> student = repo.findByNameContaining(name);
+		printStudents(student);
+	}
 }

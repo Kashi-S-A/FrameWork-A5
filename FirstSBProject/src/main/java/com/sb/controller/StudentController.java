@@ -1,8 +1,5 @@
 package com.sb.controller;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,64 +11,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sb.util.Student;
+import com.sb.dto.StudentDTO;
+import com.sb.dto.StudentResponseDTO;
+import com.sb.service.StudentService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/student")
 public class StudentController {
 
-	static Set<Student> students = new HashSet<>();
+	private StudentService studentService;
 
-	static {
-		students.add(new Student(101, "Dinga", "dinga@gmail.com"));
-		students.add(new Student(102, "Dingi", "dingi@gmail.com"));
-		students.add(new Student(103, "Manga", "manga@gmail.com"));
-		students.add(new Student(104, "Mangi", "mangi@gmail.com"));
-		students.add(new Student(105, "Penga", "pengi@gmail.com"));
+	public StudentController(StudentService studentService) {
+		this.studentService = studentService;
 	}
 
 	@GetMapping("/get")
-	public Student fetchStudent(@RequestParam(name = "sid") Integer id) {
-		System.out.println(id);
-		for (Student student : students) {
-			if (student.getSid() == id) {
-				return student;
-			}
-		}
-		return null;
+	public StudentResponseDTO fetchStudent(@RequestParam(name = "sid") Long id) {
+		return studentService.getById(id);
 	}
 
 	@GetMapping("/all")
-	public Set<Student> fetchStudent() {
-		return students;
+	public void fetchStudent() {
+		// TODO: logic fetch
+		return;
 	}
 
 	@PostMapping("/save")
-	public String postMethodName(@RequestBody Student student) {
-		students.add(student);
-		System.out.println(student);
-		return "Student is saved with sid : " + student.getSid();
+	public String save(@RequestBody @Valid StudentDTO studentDTO) {
+		return studentService.saveStudent(studentDTO);
 	}
 
 	@PutMapping("/update/{sid}/{name}")
-	public String putMethodName(@PathVariable(name = "sid") Integer id, @PathVariable String name) {
-		for (Student student : students) {
-			if (student.getSid() == id) {
-				student.setName(name);
-				return "Student with id : " + id + " is update with new name : " + name;
-			}
-		}
+	public String updateName(@PathVariable(name = "sid") Integer id, @PathVariable String name) {
 		return "Student not found";
 	}
 
 	@DeleteMapping("/delete")
-	public String deleteMethodName(@RequestParam Integer sid) {
-		for (Student student : students) {
-			if (student.getSid() == sid) {
-				students.remove(student);
-				return "Student with id : " + sid + " is deleted";
-			}
-		}
+	public String delete(@RequestParam Integer sid) {
 		return "Student not found";
 	}
 

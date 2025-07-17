@@ -1,12 +1,14 @@
 package com.sb.controller;
 
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,35 +30,28 @@ public class StudentController {
 	}
 
 	@GetMapping("/get")
-	public StudentResponseDTO fetchStudent(@RequestParam(name = "sid") Long id) {
+	public ResponseEntity<?> fetchStudent(@RequestParam(name = "sid") Long id) {
 		return studentService.getById(id);
 	}
 
 	@GetMapping("/all")
-	public void fetchStudent() {
-		// TODO: logic fetch
-		return;
+	public List<StudentResponseDTO> fetchStudent(@RequestParam Integer pageNumber) {
+		return studentService.findAll(pageNumber);
 	}
 
 	@PostMapping("/save")
-	public String save(@RequestBody @Valid StudentDTO studentDTO) {
+	public ResponseEntity<String> save(@RequestBody @Valid StudentDTO studentDTO) {
 		return studentService.saveStudent(studentDTO);
 	}
 
 	@PutMapping("/update/{sid}/{name}")
-	public String updateName(@PathVariable(name = "sid") Integer id, @PathVariable String name) {
-		return "Student not found";
+	public String updateName(@PathVariable(name = "sid") Long id, @PathVariable String name) {
+		return studentService.updateName(id, name);
 	}
 
 	@DeleteMapping("/delete")
-	public String delete(@RequestParam Integer sid) {
-		return "Student not found";
-	}
-
-	@GetMapping("/head")
-	public String gotData(@RequestHeader String secretKey) {
-		System.out.println(secretKey);
-		return "read the data from headers";
+	public String delete(@RequestParam Long sid) {
+		return studentService.deleteStudent(sid);
 	}
 
 }

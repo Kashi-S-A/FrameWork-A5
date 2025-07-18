@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sb.dto.StudentDTO;
 import com.sb.dto.StudentResponseDTO;
+import com.sb.exception.StudentNotFoundException;
 import com.sb.service.StudentService;
 
 import jakarta.validation.Valid;
@@ -31,8 +32,17 @@ public class StudentController {
 
 	@GetMapping("/get")
 	public ResponseEntity<?> fetchStudent(@RequestParam(name = "sid") Long id) {
-		return studentService.getById(id);
+//		String a = null;
+//		a.charAt(0);
+		throw new StudentNotFoundException("student does not exist");
+//		return studentService.getById(id);
 	}
+
+//	@ExceptionHandler(Exception.class)
+//	public ResponseEntity<String> handleArithmeticException(Exception exception) {
+//		System.out.println("Local handler");
+//		return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+//	}
 
 	@GetMapping("/all")
 	public List<StudentResponseDTO> fetchStudent(@RequestParam Integer pageNumber) {
@@ -52,6 +62,20 @@ public class StudentController {
 	@DeleteMapping("/delete")
 	public String delete(@RequestParam Long sid) {
 		return studentService.deleteStudent(sid);
+	}
+
+	@GetMapping(value = "/content", produces = { 
+												 "application/xml",
+												 "application/json" 
+												}, 
+									consumes = {
+												 "application/xml",
+												 "application/json"
+												}
+	             )
+	public StudentDTO getMethodName(@RequestBody StudentDTO studentDTO) {
+		System.out.println(studentDTO);
+		return studentDTO;
 	}
 
 }

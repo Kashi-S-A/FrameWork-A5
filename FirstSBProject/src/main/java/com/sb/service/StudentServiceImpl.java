@@ -78,7 +78,7 @@ public class StudentServiceImpl implements StudentService {
 	public String deleteStudent(Long sid) {
 		Student student = studentDAO.findById(sid);
 		studentDAO.delete(student);
-		return "Student not found";
+		return "Student Deleted";
 	}
 
 }

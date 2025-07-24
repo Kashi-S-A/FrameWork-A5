@@ -1,14 +1,13 @@
-package com.sb;
+package com.expensetracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@Profile(value = "dev")
-public class FirstSbProjectApplication {
+public class ExpenseTrackerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstSbProjectApplication.class, args);
+		SpringApplication.run(ExpenseTrackerApplication.class, args);
 	}
 
 }

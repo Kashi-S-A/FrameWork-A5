@@ -14,6 +14,26 @@
         align-items: center;
         height: 100vh;
       }
+      
+      .nav-links {
+        display: flex;
+        justify-content:center;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        background-color: #007bff;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background-color: #0056b3;
+      }
 
       .expense-form-container {
         background-color: white;
@@ -76,9 +96,9 @@
   <body>
     <div class="expense-form-container">
       <h2>Add Expense</h2>
-      <form >
+      <form action="addexpense" method="post">
         <label for="expenseName">Expense Name:</label>
-        <input type="text" id="expenseName" name="expenseName" required />
+        <input type="text" id="expenseName" name="name" required />
 
         <label for="amount">Amount:</label>
         <input type="number" id="amount" name="amount" step="0.01" required />
@@ -86,7 +106,7 @@
         <label for="description">Description:</label>
         <textarea
           id="description"
-          name="description"
+          name="desciption"
           rows="4"
           required
         ></textarea>
@@ -95,6 +115,9 @@
       </form>
 
       <div class="message" id="message"></div>
+       <div class="nav-links">
+    	<a  href="welcome">Go Back</a>
+       </div>
     </div>
   </body>
 </html>

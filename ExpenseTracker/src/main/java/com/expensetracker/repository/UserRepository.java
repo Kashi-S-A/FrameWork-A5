@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.expensetracker.entity.User;
-import java.util.List;
 
 
 

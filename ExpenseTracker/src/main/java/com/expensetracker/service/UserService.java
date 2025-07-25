@@ -8,4 +8,6 @@ public interface UserService {
 
 	boolean login(String un, String pwd);
 
+	User findByUserName(String userName);
+
 }

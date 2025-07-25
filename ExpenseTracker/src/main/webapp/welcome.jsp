@@ -44,11 +44,12 @@
   </head>
   <body>
     <h1>Welcome to Expense Tracker</h1>
-
+	<h4 style="color: green">${msg}</h4>
     <div class="nav-links">
-      <a href="add-expense.html">Add Expense</a>
+      <a href="addexpense">Add Expense</a>
       <a href="update-expense.html">Update Expense</a>
-      <a href="expense-list.html">Expense List</a>
+      <a href="expenselist">Expense List</a>
+      <a style="background-color : red" href="logout">Logout</a>
     </div>
     <p>
       Manage expenses effectively using above links, you can add new expense ,

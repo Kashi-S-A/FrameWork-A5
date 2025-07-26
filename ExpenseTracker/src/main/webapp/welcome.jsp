@@ -47,7 +47,6 @@
 	<h4 style="color: green">${msg}</h4>
     <div class="nav-links">
       <a href="addexpense">Add Expense</a>
-      <a href="update-expense.html">Update Expense</a>
       <a href="expenselist">Expense List</a>
       <a style="background-color : red" href="logout">Logout</a>
     </div>

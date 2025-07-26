@@ -82,6 +82,7 @@ tr:hover {
 				<th>Exp added Date</th>
 				<th>Last Updated On Date</th>
 				<th>Update</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -99,7 +100,8 @@ tr:hover {
 				<td><%=expense.getDesciption()%></td>
 				<td><%=expense.getCreatedDate()%></td>
 				<td><%=expense.getUpdatedDate()%></td>
-				<td><a href="#">update</a></td>
+				<td><a href="updateExpense?eid=<%= expense.getEid()%>">update</a></td>
+				<td><a href="deleteExpense?eid=<%= expense.getEid()%>">Delete</a></td>
 			</tr>
 
 			<%

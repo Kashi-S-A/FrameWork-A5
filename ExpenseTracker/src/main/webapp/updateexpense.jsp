@@ -1,3 +1,4 @@
+<%@page import="com.expensetracker.entity.Expense"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -76,20 +77,25 @@
   <body>
     <div class="expense-form-container">
       <h2>Update Expense</h2>
-      <form >
+      <form action="/updateexpense" method="post">
+      
+      	<label for="expenseId">Expense Id:</label>
+        <input type="text" id="expenseId" name="eid" readonly="readonly" value="${exp.eid}" required />
+      
         <label for="expenseName">Expense Name:</label>
-        <input type="text" id="expenseName" name="expenseName" required />
-
+        <input type="text" id="expenseName" name="name" value="${exp.name}" required />
+        
         <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" step="0.01" required />
+        <input type="number" id="amount" name="amount" step="0.01" value="${exp.amount}" required />
 
-        <label for="description">Description:</label>
-        <textarea
+        <label for="desciption">Description:</label>
+        <input
           id="description"
-          name="description"
-          rows="4"
+          type="text"
+          name="desciption"
+          value = "${exp.desciption}"
           required
-        ></textarea>
+        ></input>
 
         <input type="submit" value="Update Expense" />
       </form>

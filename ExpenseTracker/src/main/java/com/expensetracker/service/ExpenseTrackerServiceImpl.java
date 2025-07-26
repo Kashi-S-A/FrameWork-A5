@@ -17,4 +17,28 @@ public class ExpenseTrackerServiceImpl implements ExpenseTrackerService {
 		return expenseRepository.save(expense).getEid();
 	}
 
+	@Override
+	public Expense findById(Integer eid) {
+		return expenseRepository.findById(eid).get();
+	}
+
+	@Override
+	public String updateExpense(Expense expense) {
+		
+		Expense exp = findById(expense.getEid());
+		exp.setName(expense.getName());
+		exp.setDesciption(expense.getDesciption());
+		exp.setAmount(expense.getAmount());
+		
+		expenseRepository.save(exp);
+		
+		return "Updated Successfully";
+	}
+
+	@Override
+	public String deleteExpense(Integer eid) {
+		expenseRepository.deleteById(eid);
+		return "Deleted Successfully";
+	}
+
 }

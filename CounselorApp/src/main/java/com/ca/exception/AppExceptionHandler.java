@@ -12,6 +12,11 @@ public class AppExceptionHandler {
 
 	@ExceptionHandler(CounselorNotFound.class)
 	public ResponseEntity<?> catchCounselorNotFound() {
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
+	@ExceptionHandler(EnquiryNotFound.class)
+	public ResponseEntity<?> catchEnquiryNotFound() {
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 }

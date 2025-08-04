@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Welcome to Counselor App</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f0f4f8;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .welcome-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 350px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .username {
+        color: #0077cc;
+        font-weight: bold;
+      }
+
+      .options {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .options a {
+        text-decoration: none;
+        color: white;
+        background-color: #0077cc;
+        padding: 10px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      .options a:hover {
+        background-color: #005fa3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="welcome-container">
+      <h1>Welcome to Counselor App</h1>
+      <p>Hello, <span class="username" th:text="${username}">User</span>!</p>
+      <p>
+        Here you can explore, and maintain enquiries of students for particular
+        Course.
+      </p>
+      <div class="options">
+        <a href="/contact">Contact</a>
+        <a href="/help">Help</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Enquiry Confirmation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #e9f5ff;
+        padding: 30px;
+      }
+
+      .container {
+        background: #fff;
+        padding: 40px;
+        max-width: 600px;
+        margin: 100px auto;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+        text-align: center;
+      }
+
+      h2 {
+        color: #007bff;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        color: #333;
+      }
+
+      .course {
+        font-weight: bold;
+        color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Thank You, <span th:text="${userName}">User</span>!</h2>
+      <p>
+        Your enquiry for
+        <span class="course" th:text="${course}">Selected Course</span> has been
+        received.
+      </p>
+      <p>We will contact you soon with more details.</p>
+    </div>
+  </body>
+</html>
